@@ -1,5 +1,5 @@
 resource "aws_spot_instance_request" "cheap_worker" {
-  ami                    = "ami-0fe118ae150a71466"
+  ami                    = "ami-03197d3284e25e8db"
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.allow_app.id]
   wait_for_fulfillment   = true
@@ -34,7 +34,7 @@ resource "null_resource" "ansible-apply" {
       password = "DevOps321"
     }
     inline = [
-      "ansible-pull -U https://github.com/raghudevopsb62/ansible roboshop-pull.yml -e COMPONENT=${var.COMPONENT["name"]} -e ENV=dev"
+      "ansible-pull -U https://github.com/pathipatireshma/ansible roboshop-pull.yml -e COMPONENT=${var.COMPONENT["name"]} -e ENV=dev"
     ]
   }
 }
